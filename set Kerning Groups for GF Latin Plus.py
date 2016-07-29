@@ -1070,7 +1070,7 @@ DefaultKeys = {
 	"emdash" :  ["hyphen", "hyphen"],
 	"endash" :  ["hyphen", "hyphen"],
 	"hyphen" :  ["hyphen", "hyphen"],	
-    "softhyphen" :  ["space", "space"],	
+	"softhyphen" :  ["hyphen", "hyphen"],
 	"guillemetleft" :  ["guilsinglleft", "guilsinglleft"],
 	"guillemetright" :  ["guilsinglright", "guilsinglright"],
 	"guilsinglleft" :  ["guilsinglleft", "guilsinglleft"],
