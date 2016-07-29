@@ -569,7 +569,7 @@ Keys = [
 	"seven.osf",
 	"eight.osf",
 	"nine.osf",
-	"ten.osf",	
+	"ten.osf",
 ### End GF Latin Plus list
 ### Start Greek
 	"Alpha",
@@ -1069,7 +1069,7 @@ DefaultKeys = {
 	"parenright.case" :  ["parenright", "parenright"],
 	"emdash" :  ["hyphen", "hyphen"],
 	"endash" :  ["hyphen", "hyphen"],
-	"hyphen" :  ["hyphen", "hyphen"],	
+	"hyphen" :  ["hyphen", "hyphen"],
 	"softhyphen" :  ["hyphen", "hyphen"],
 	"guillemetleft" :  ["guilsinglleft", "guilsinglleft"],
 	"guillemetright" :  ["guilsinglright", "guilsinglright"],
@@ -1168,7 +1168,7 @@ DefaultKeys = {
 	"eight.osf" : ["eight", "eight"],
 	"nine.osf" : ["nine", "nine"],
 	"ten.osf" : ["ten", "ten"],
-### Greek	
+### Greek
 	"Alpha" : ["A", "A"],
 	"Beta" : ["H", "B"],
 	"Gamma" : ["", "H"],
