@@ -472,7 +472,6 @@ Keys = [
 	"emdash",
 	"endash",
 	"hyphen",
-	"softhyphen",
 	"guillemetleft",
 	"guillemetright",
 	"guilsinglleft",
@@ -1070,7 +1069,6 @@ DefaultKeys = {
 	"emdash" :  ["hyphen", "hyphen"],
 	"endash" :  ["hyphen", "hyphen"],
 	"hyphen" :  ["hyphen", "hyphen"],
-	"softhyphen" :  ["hyphen", "hyphen"],
 	"guillemetleft" :  ["guilsinglleft", "guilsinglleft"],
 	"guillemetright" :  ["guilsinglright", "guilsinglright"],
 	"guilsinglleft" :  ["guilsinglleft", "guilsinglleft"],
@@ -1255,7 +1253,8 @@ def updateKeyGlyphsForSelected():
 		LeftKey = ""
 		RightKey = ""
 		LigatureComponents = Glyph.name.split("_")
-		if len(Layer.components) > 0 and len(Layer.paths) == 0 and Layer.components[0].transformStruct()[0] == 1:
+'''		removes assigning keys from existing components
+        if len(Layer.components) > 0 and len(Layer.paths) == 0 and Layer.components[0].transformStruct()[0] == 1:
 			componentGlyph = Layer.components[0].component
 			if not componentGlyph:
 				raise Exception("Something is wrong with a Component in Glyphs %s" % Layer.parent.name)
@@ -1278,8 +1277,8 @@ def updateKeyGlyphsForSelected():
 				RightKey = KeysForGlyph(componentGlyph)[1]
 				if not RightKey:
 					RightKey = componentGlyph.name
-		
-		elif len(LigatureComponents) > 1:
+'''		
+		if len(LigatureComponents) > 1:    # was elif:
 			LeftGlyph = Font.glyphs[LigatureComponents[0]]
 			if LeftGlyph != None:
 				LeftKey = KeysForGlyph(LeftGlyph)[0]
