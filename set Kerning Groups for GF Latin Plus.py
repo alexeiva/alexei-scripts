@@ -568,7 +568,7 @@ Keys = [
 	"seven.osf",
 	"eight.osf",
 	"nine.osf",
-	"ten.osf",
+	"ten.osf",	
 ### End GF Latin Plus list
 ### Start Greek
 	"Alpha",
@@ -1068,7 +1068,7 @@ DefaultKeys = {
 	"parenright.case" :  ["parenright", "parenright"],
 	"emdash" :  ["hyphen", "hyphen"],
 	"endash" :  ["hyphen", "hyphen"],
-	"hyphen" :  ["hyphen", "hyphen"],
+	"hyphen" :  ["hyphen", "hyphen"],	
 	"guillemetleft" :  ["guilsinglleft", "guilsinglleft"],
 	"guillemetright" :  ["guilsinglright", "guilsinglright"],
 	"guilsinglleft" :  ["guilsinglleft", "guilsinglleft"],
@@ -1166,7 +1166,7 @@ DefaultKeys = {
 	"eight.osf" : ["eight", "eight"],
 	"nine.osf" : ["nine", "nine"],
 	"ten.osf" : ["ten", "ten"],
-### Greek
+### Greek	
 	"Alpha" : ["A", "A"],
 	"Beta" : ["H", "B"],
 	"Gamma" : ["", "H"],
@@ -1253,8 +1253,7 @@ def updateKeyGlyphsForSelected():
 		LeftKey = ""
 		RightKey = ""
 		LigatureComponents = Glyph.name.split("_")
-'''		removes assigning keys from existing components
-        if len(Layer.components) > 0 and len(Layer.paths) == 0 and Layer.components[0].transformStruct()[0] == 1:
+		if len(Layer.components) > 0 and len(Layer.paths) == 0 and Layer.components[0].transformStruct()[0] == 1:
 			componentGlyph = Layer.components[0].component
 			if not componentGlyph:
 				raise Exception("Something is wrong with a Component in Glyphs %s" % Layer.parent.name)
@@ -1277,8 +1276,8 @@ def updateKeyGlyphsForSelected():
 				RightKey = KeysForGlyph(componentGlyph)[1]
 				if not RightKey:
 					RightKey = componentGlyph.name
-'''		
-		if len(LigatureComponents) > 1:    # was elif:
+		
+		elif len(LigatureComponents) > 1:
 			LeftGlyph = Font.glyphs[LigatureComponents[0]]
 			if LeftGlyph != None:
 				LeftKey = KeysForGlyph(LeftGlyph)[0]
