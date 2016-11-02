@@ -1,13 +1,12 @@
-#MenuTitle: Update WinAsc and WinDesc
+#MenuTitle: Update winAsc and winDesc
 '''
-Update custom paramters WinAscender and WinDescender according to tallest glyphs
+Update custom paramters winAscender and winDescender
 
 '''
 #
 # Based on scripts from Marc Foley
 # https://github.com/m4rc1e/mf-glyphs-scripts
 #
-# Get tallest and deepest glyphs
 
 font = Glyphs.font
 
@@ -16,7 +15,10 @@ tallest_name = ''
 
 deepest = 0 
 deepest_name = ''
-for i, master in enumerate(font.masters):
+
+masters = font.masters
+
+for i, master in enumerate(masters):
 	for glyph in font.glyphs:
 		height = glyph.layers[i].bounds[-1][-1]
 		depth = glyph.layers[i].bounds[0][-1]
@@ -29,14 +31,15 @@ for i, master in enumerate(font.masters):
 			deepest = depth
 			deepest_name = glyph.name
 
+tallest = int( round(tallest) ) 
+deepest = int( round(deepest) ) 
+
+print 'tallest glyph is %s %s' % (tallest_name, tallest) 
+print 'winAscent = %s %s' % (tallest_name, round(tallest) ) 
+print ' '
 print 'deepest glyph is %s %s' % (deepest_name, deepest)
-print 'tallest glyph = %s %s' % (tallest_name, tallest) 
+print 'winDescent = %s %s' % (deepest_name, int( round (abs(deepest)) ))
 
-masters = font.masters
-
-for i,master in enumerate(masters):
+for i, master in enumerate(masters):
     master.customParameters['winAscent'] = tallest
-    master.customParameters['winDescent'] = abs(deepest)
-
-print 'WinAscender = %s' % (tallest)
-print 'WinDescender= %s' % (deepest)
+    master.customParameters['winDescent'] = deepest
