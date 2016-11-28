@@ -15,6 +15,12 @@ Updates `winAscent` and `winDescent` values. Useful for mastering fonts after ad
 #### Acknowlegements
 Mark Foley [@m4rc1e][3], Georg Seifert [@schriftgestalt][4]
 
+
+
+### Custom GlyphsData.xml
+Drop the [GlyphsDataCYR.xml][5] file in the same folder as your `.glyphs` source file to see Cyrillic components magically generate.
+
+
 ---
 Copyright 2016, Alexei Vanyashin @alexeiva
 
@@ -26,3 +32,5 @@ Copyright 2016, Alexei Vanyashin @alexeiva
 [3]: https://github.com/m4rc1e/mf-glyphs-scripts
 
 [4]: https://github.com/schriftgestalt/Glyphs-Scripts
+
+[5]: /GlyphsData/GlyphDataCYR.xml
