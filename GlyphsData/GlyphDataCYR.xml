@@ -1,3 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE glyphData [
+<!ELEMENT glyphData (glyph)+>
+<!ELEMENT glyph EMPTY>
+<!ATTLIST glyph
+	unicode			CDATA		#IMPLIED
+	name			CDATA		#REQUIRED
+	sortName		CDATA		#IMPLIED
+	sortNameKeep	CDATA		#IMPLIED
+	category		CDATA		#REQUIRED
+	subCategory		CDATA		#IMPLIED
+	script			CDATA		#IMPLIED
+	description		CDATA		#REQUIRED
+	production		CDATA		#IMPLIED
+	altNames		CDATA		#IMPLIED
+	decompose		CDATA		#IMPLIED
+	anchors			CDATA		#IMPLIED
+	accents			CDATA		#IMPLIED>
+]>
+<glyphData>	
 	<glyph unicode="0410" name="A-cy" sortName="cy000" decompose="A" category="Letter" subCategory="Uppercase" script="cyrillic" production="uni0410" altNames="Acyrillic, afii10017" description="CYRILLIC CAPITAL LETTER A" anchors="top" accents="brevecomb-cy, dieresiscomb" />
 	<glyph unicode="0411" name="Be-cy" sortName="cy001" category="Letter" subCategory="Uppercase" script="cyrillic" production="uni0411" altNames="Becyrillic, afii10018" description="CYRILLIC CAPITAL LETTER BE" />
 	<glyph unicode="0412" name="Ve-cy" sortName="cy002" decompose="B" category="Letter" subCategory="Uppercase" script="cyrillic" production="uni0412" altNames="Vecyrillic, afii10019" description="CYRILLIC CAPITAL LETTER VE" />
@@ -398,3 +418,4 @@
 	<glyph unicode="A69F" name="iotifiedecomb-cy" category="Mark" subCategory="Nonspacing" script="cyrillic" production="uniA69F" description="COMBINING CYRILLIC LETTER IOTIFIED E" />
 	<glyph unicode="FE2E" name="titlolefthalfcomb-cy" category="Mark" subCategory="Nonspacing" script="cyrillic" production="uniFE2E" description="COMBINING CYRILLIC TITLO LEFT HALF" />
 	<glyph unicode="FE2F" name="titlorighthalfcomb-cy" category="Mark" subCategory="Nonspacing" script="cyrillic" production="uniFE2F" description="COMBINING CYRILLIC TITLO RIGHT HALF" />
+</glyphData>
