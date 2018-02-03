@@ -9,7 +9,7 @@
 # located at 
 # https://github.com/schriftgestalt/Glyphs-Scripts/blob/master/Metrics%20%26%20Classes/set%20Kerning%20Groups.py
 #
-# It is reworked to include kerning classes for the GF Latin Plus Encoding. 
+# It is reworked to include kerning classes for GF Latin Plus, GF Cyrillic Plus glyphs sets.
 # 
 #-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 
