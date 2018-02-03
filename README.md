@@ -21,6 +21,13 @@ Inherits Metrics Keys to suffixed glyphs (.ssXX) from parent
 
 * **Set Metrics Keys Auto**
 Sets default Metrics Keys. Derived from `Set Kerning Groups` by @shriftgestalt
+
+* **Steal Metrics Keys**
+Copies Metrics Keys from other font. Stolen from `Steal kerning groups from font` by @mekkablue
+
+* **Gridster**
+Opens a new tab with Latin and Cyrillic grid tests.
+
  
 #### Paths: 
 
