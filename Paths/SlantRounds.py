@@ -38,6 +38,9 @@ print "*** Start Rounding Glyphs\n"
 
 try: 
 	for thisLayer in selectedLayers:
+		if not (thisLayer.glyphMetrics()[5] > 0):
+			print "Italic Angle should be greater than zero. Set Italic Angle in Font Master"
+			break
 		print "Rounding glyph '%s' -> " % (thisLayer.parent.name),
 		process( thisLayer )
 		yShift.append(yShift[1] - yShift[0])
@@ -45,10 +48,11 @@ try:
 		compensate( thisLayer )
 		print "y-shift: %s, x-shift: %s" % (abs(yShift[2]), xShift[2])
 		thisLayer.syncMetrics()
+
+	for thisLayer in selectedLayers[:-1]: # Last layer
+  		print "Done. Clean up nodes if necessary."
 except TypeError: 
-	print "No glyphs selected. Select glyphs to be rounded and run script."
-
-
-print "\n*** Done. Clean up nodes if necessary."
+	print "No glyphs selected. Select glyphs and rerun script."
+print "\n***"
 
 thisFont.enableUpdateInterface() # re-enables UI updates in Font View
