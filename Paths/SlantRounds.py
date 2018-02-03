@@ -1,6 +1,6 @@
 #MenuTitle: Slant Rounds
 # -*- coding: utf-8 -*-
-# The slanting algorithm is based on
+# The slanting algorithm is based on the
 # method by Jacques Le Bailly <fonthausen@baronvonfonthausen.com>
 # Copyright 2017 Alexei Vanyashin <a@cyreal.org>
 __doc__="""
@@ -8,41 +8,47 @@ Slants round glyphs with vertical compensation. Based on method by Jacques Le Ba
 """
 
 import GlyphsApp
-thisMasterAngle = thisLayer.glyphMetrics()[5]
-myY = thisMasterAngle / 100 
-myX = -thisMasterAngle / 100 
-compensationAmount = 9
 
 thisFont = Glyphs.font # frontmost font
 selectedLayers = thisFont.selectedLayers # active layers of selected glyphs
 
-
+yShift = []
+xShift = []
 def process( thisLayer ):
+	thisMasterAngle = thisLayer.glyphMetrics()[5]
+	myY = thisMasterAngle / 100 
+	myX = -thisMasterAngle / 100 
+	yShift.append(thisLayer.bounds.origin.y)
+	xShift.append(thisLayer.bounds.origin.x)
+	thisLayer.beginChanges()
+	thisLayer.applyTransform([1, myX, myY*2, 1, 0, 0])
+	thisLayer.addNodesAtExtremes()
+	yShift.append(thisLayer.bounds.origin.y)
+	xShift.append(thisLayer.bounds.origin.x)
+	thisLayer.endChanges()
 
-	for thisLayer in selectedLayers:
-	
-		bounds = thisLayer.bounds
-		minY = bounds.origin.y
-		minX = bounds.origin.x
-		offsetY = + compensationAmount - minY
-		offsetX = + compensationAmount - minX
-
-		thisLayer.beginChanges()
-		thisLayer.applyTransform([1, myX, myY*2, 1, offsetX, offsetY])
-		thisLayer.addNodesAtExtremes()
-		thisLayer.setColorIndex_(1)
-		thisLayer.syncMetrics()
-		thisLayer.endChanges()
+def compensate( thisLayer ):
+	for thisPath in thisLayer.paths:
+		for thisNode in thisPath.nodes:
+			thisNode.y += abs(yShift[2])
+			thisNode.x -= abs(xShift[2])
 
 thisFont.disableUpdateInterface() # suppresses UI updates in Font View
+print "*** Start Rounding Glyphs\n"
 
-process( thisLayer )
+try: 
+	for thisLayer in selectedLayers:
+		print "Rounding glyph '%s' -> " % (thisLayer.parent.name),
+		process( thisLayer )
+		yShift.append(yShift[1] - yShift[0])
+		xShift.append(xShift[1] - xShift[0])
+		compensate( thisLayer )
+		print "y-shift: %s, x-shift: %s" % (abs(yShift[2]), xShift[2])
+		thisLayer.syncMetrics()
+except TypeError: 
+	print "No glyphs selected. Select glyphs to be rounded and run script."
 
-for thisLayer in selectedLayers:
-	print "Processing %s" % thisLayer.parent.name
-	thisLayer.syncMetrics()
+
+print "\n*** Done. Clean up nodes if necessary."
 
 thisFont.enableUpdateInterface() # re-enables UI updates in Font View
-
-Glyphs.clearLog()
-Glyphs.showMacroWindow()
