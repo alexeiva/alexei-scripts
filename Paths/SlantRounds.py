@@ -7,6 +7,7 @@ __doc__="""
 Slants round glyphs with vertical compensation. Based on method by Jacques Le Bailly
 """
 
+from math import radians
 import GlyphsApp
 
 thisFont = Glyphs.font # frontmost font
@@ -14,14 +15,14 @@ selectedLayers = thisFont.selectedLayers # active layers of selected glyphs
 
 def process( thisLayer ):
 	thisMasterAngle = thisLayer.associatedFontMaster().italicAngle
-	myY = thisMasterAngle / 100 
-	myX = -thisMasterAngle / 100 
+	myX =  radians(thisMasterAngle) # horizontal skew = italic angle
+	myY = -radians(thisMasterAngle) # vertical skew = -0.5 * italic angle
 	
 	thisLayer.beginChanges()
 		
 	# shear:
 	oldPos = thisLayer.bounds.origin
-	thisLayer.applyTransform([1, myX, myY*2, 1, 0, 0])
+	thisLayer.applyTransform([1, myY/2, myX, 1, 0, 0])
 	thisLayer.addNodesAtExtremes()
 	
 	# move back:
@@ -50,7 +51,7 @@ try:
 	for thisLayer in selectedLayers[:-1]: # Last layer
   		print "Done. Clean up nodes if necessary."
 except TypeError: 
-	print "No glyphs selected. Select glyphs and rerun script."
+	print "No glyphs were selected. Select glyphs and re-run script."
 print "\n***"
 
 thisFont.enableUpdateInterface() # re-enables UI updates in Font View
