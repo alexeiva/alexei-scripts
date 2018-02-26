@@ -32,7 +32,7 @@ def process( thisLayer ):
 	
 	thisLayer.endChanges()
 	
-	print "y-shift: %s, x-shift: %s" % (abs(yShift[2]), xShift[2])
+	print "y-shift: %s, x-shift: %s" % (yShiftBack, xShiftBack)
 
 
 thisFont.disableUpdateInterface() # suppresses UI updates in Font View
