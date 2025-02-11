@@ -1,4 +1,4 @@
-### Alexei's scripts for Glyphs App
+### Alexei's scripts for Glyphs App for G2
 
 ---
 

@@ -1,33 +1,46 @@
-#MenuTitle: Gridster LAT-CYR
+# MenuTitle: Gridster LAT-CYR
 # encoding: utf-8
-# Copyright: Alexei Vanyashin, 2017, Version 0.1
+# Copyright: Alexei Vanyashin
+# Version: 0.2 for Glyphs3
 #
 #-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 # Opens a new tab with Latin and Cyrillic grid tests.
 #-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 
 import re
-Glyphs.clearLog() # clears macro window log
 
+# Clear the macro window log for debugging purposes
+Glyphs.clearLog()
+
+# Latin and Cyrillic strings
 stringLatin = 'abcdefghijklmnopqrstuvwxyz'
+stringCyrillic = 'абвгдеёжзийклмнопрстуфхчцшщьъыэюя'
+
+# Initialize outputs
 outputLatin = stringLatin + '\n'
+outputCyrillic = stringCyrillic + '\n'
 
-string = 'абвгдеёжзийклмнопрстуфхчцшщьъыэюя'
-string = string.decode('utf-8')
-output = string + '\n' # adding line breaks to string
+# Generate Latin grid (15 lines)
+for i in range(15):
+    stringLatin = stringLatin[1:] + stringLatin[0]  # Rotate characters
+    outputLatin += stringLatin + '\n'
 
-for i in range(15):	# prints x lines of Latin grid test
-	stringLatin = re.sub('^(\S){1}(.*)', r"\2\1", stringLatin)
-	outputLatin += stringLatin + '\n'
+# Add spaces between characters in Latin grid
+outputFormattedLatin = re.sub(r'(\S)', r'\1 ', outputLatin)
 
-outputFormatted = re.sub('(\S{1})', r"\1 ", outputLatin) # adding spaces
+# Generate Cyrillic grid (15 lines)
+for i in range(15):
+    stringCyrillic = stringCyrillic[1:] + stringCyrillic[0]  # Rotate characters
+    outputCyrillic += stringCyrillic + '\n'
 
-for i in range(15):	# prints x lines of Cyrillic grid test
-	string = re.sub('^(\S){1}(.*)', r"\2\1", string)
-	output += string + '\n'
+# Add spaces between characters in Cyrillic grid
+outputFormattedCyrillic = re.sub(r'(\S)', r'\1 ', outputCyrillic)
 
-outputFormatted += re.sub('(\S{1})', r"\1 ", output) # adding spaces
+# Combine both grids and add an uppercase version
+outputFormatted = outputFormattedLatin + outputFormattedCyrillic
 outputFormattedUpper = outputFormatted.upper()
 
-Glyphs.currentDocument.windowController().addTabWithString_( outputFormatted )
-Glyphs.currentDocument.windowController().addTabWithString_( outputFormattedUpper )
+# Open new tabs in Glyphs with the generated grids
+Font = Glyphs.font
+Font.newTab(outputFormatted)
+Font.newTab(outputFormattedUpper)
