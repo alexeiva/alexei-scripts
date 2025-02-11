@@ -1,5 +1,12 @@
-MenuTitle: Remove Kerning Groups from Selected Glyphs
-# -*- coding: utf-8 -*-
+# MenuTitle: Remove Kerning Groups from Selected Glyphs
+# encoding: utf-8
+# Copyright: Alexei Vanyashin
+# Version: 0.9 for Glyphs3
+#
+#-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
+# Removes kerning groups of selected glyphs
+#-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
+
 import GlyphsApp
 
 Font = Glyphs.font  # Get the current font

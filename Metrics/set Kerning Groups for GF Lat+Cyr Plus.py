@@ -1,7 +1,7 @@
-#MenuTitle: Set Kerning Groups for GF Latin Plus
+#MenuTitle: Set Kerning Groups for Google Fonts Glyph Sets
 # encoding: utf-8
 # Copyright: Georg Seifert, 2010, www.schriftgestaltung.de Version 1.0
-# Copyright: Alexei Vanyashin, 2016, www.cyreal.org Version 1.01
+# Copyright: Alexei Vanyashin, 2016, 2025, www.cyreal.org Version 1.01
 #
 #-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:-:
 #
